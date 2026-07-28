@@ -1,6 +1,9 @@
 # Hirusha Madhushan — Portfolio
 
+**Live:** <https://hirushamadhushan.vercel.app>
+
 Static, animated portfolio site. No build step, no dependencies — open `index.html`.
+Hosted on Vercel; every push to `main` redeploys automatically.
 
 ```
 portfolio/
@@ -128,8 +131,17 @@ Right-click any contact card to copy its value.
 
 ## Deploy
 
-Full step-by-step in **[DEPLOY.md](DEPLOY.md)** — including how to solve the
-"my CV doesn't have the portfolio link on it yet" problem.
+Already live on Vercel at <https://hirushamadhushan.vercel.app>. To ship a change:
 
-Short version: create a public repo named `hirushamadhushan.github.io`, push this
-folder to it, turn on Pages. Site lands at <https://hirushamadhushan.github.io>.
+```bash
+cd C:/Users/Admin/portfolio
+git add .
+git commit -m "what changed"
+git push
+```
+
+Vercel picks it up and redeploys in ~30 seconds. Hard-refresh with **Ctrl+Shift+R**
+if you still see the old version.
+
+**[DEPLOY.md](DEPLOY.md)** covers custom domains, the GitHub Pages alternative, and
+how to handle the "my CV doesn't have the portfolio link on it yet" problem.
