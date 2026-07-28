@@ -75,7 +75,7 @@ The only thing left is dropping your files into `assets/`:
 | File | Used for | Notes |
 |---|---|---|
 | `assets/profile.jpg` | hero portrait | portrait crop, ~800×1000 (4:5). Until it exists an "HM" placeholder shows. |
-| `assets/resume.pdf` | Download CV button | |
+| `assets/RDHM_Dharmakeerthi_CV_5.pdf` | Download CV button | The `download="Hirusha-Madhushan-CV.pdf"` attribute on the button renames it on the visitor's machine, so the file here can keep any name. Swap the filename in both places if you replace it. |
 | `assets/medisync.png` | MediSync card | 21:9 screenshot |
 | `assets/mystore.png` | MyStore card | 16:9 screenshot |
 | `assets/heart.png` | Heart Disease card | 16:9 screenshot |
