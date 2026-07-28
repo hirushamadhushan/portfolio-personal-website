@@ -1,68 +1,74 @@
-# Hosting this on GitHub Pages
+# Hosting
 
-Your site will live at:
+Two options, both free, both auto-deploy on every `git push`. You only need one.
 
-```
-https://hirushamadhushan.github.io
-```
+| | Vercel | GitHub Pages |
+|---|---|---|
+| URL | `hirushamadhushan.vercel.app` | `hirushamadhushan.github.io/portfolio-personal-website` |
+| Clean short URL? | yes, pick any project name | only if the repo is renamed `hirushamadhushan.github.io` |
+| Setup | import the repo, click Deploy | Settings → Pages → pick branch |
+| Custom domain | free | free |
 
-That URL is decided by your **username**, not by anything you do next — so you
-already know it, before you publish anything. (That matters for the CV; see the
-last section.)
+**Vercel is the easier one here** — the repo is already named
+`portfolio-personal-website`, and Vercel lets you choose the URL independently of
+that. You also already have an account from MediSync.
+
+Whichever you pick, the URL is knowable **before** you deploy, which is what
+makes the CV problem solvable (last section).
 
 ---
 
-## One-time setup
+## Option A — Vercel
 
-### 1. Tell git who you are
+1. Go to <https://vercel.com/new> and **Import Git Repository**.
+2. Find `portfolio-personal-website` → **Import**.
+3. On the configure screen:
+   - **Framework Preset:** `Other`
+   - **Build Command:** leave empty — there is no build step
+   - **Output Directory:** leave empty
+   - **Project Name:** `hirushamadhushan` ← this decides the URL
+4. **Deploy**.
 
-Only needed once per machine:
+Live at `https://hirushamadhushan.vercel.app` in about 30 seconds. Every push to
+`main` redeploys automatically.
 
-```bash
-git config --global user.name "Hirusha Madhushan"
-git config --global user.email "rdhmadhushan@gmail.com"
-```
+Custom domain later: Project → Settings → Domains → add it, follow the DNS
+instructions. (Same flow you used for `medisynclk.dev`.)
 
-### 2. Create the repository on GitHub
+---
 
-Go to <https://github.com/new> and create a repo named **exactly**:
+## Option B — GitHub Pages
 
-```
-hirushamadhushan.github.io
-```
-
-- Visibility: **Public** (Pages needs public on the free plan)
-- Do **not** tick "Add a README" — leave it completely empty
-
-The name has to match your username exactly. Get it right and GitHub serves it
-at the clean root URL above; any other name gets you
-`hirushamadhushan.github.io/<repo-name>` instead.
-
-### 3. Push the folder
+For the clean root URL `https://hirushamadhushan.github.io`, the repo has to be
+named exactly `hirushamadhushan.github.io` — rename it under
+**Settings → General → Repository name** (GitHub redirects the old URL, nothing
+breaks), then update the local remote:
 
 ```bash
-cd C:/Users/Admin/portfolio
-git init
-git add .
-git commit -m "Portfolio site"
-git branch -M main
-git remote add origin https://github.com/hirushamadhushan/hirushamadhushan.github.io.git
-git push -u origin main
+git remote set-url origin https://github.com/hirushamadhushan/hirushamadhushan.github.io.git
 ```
 
-The first push asks you to sign in — a browser window opens, approve it there.
+Otherwise you get `hirushamadhushan.github.io/portfolio-personal-website`, which
+also works fine.
 
-### 4. Turn Pages on
-
-Repo → **Settings** → **Pages** → under *Build and deployment*:
+Then: repo → **Settings** → **Pages** → *Build and deployment*:
 
 - Source: **Deploy from a branch**
 - Branch: **main**, folder: **/ (root)** → **Save**
 
-Give it 1–2 minutes, then open <https://hirushamadhushan.github.io>.
+Give it 1–2 minutes.
 
-For a repo named `<username>.github.io` this is often already switched on — check
-before you change anything.
+---
+
+## Already done
+
+The repo is created, git is configured and everything is pushed:
+
+```
+https://github.com/hirushamadhushan/portfolio-personal-website
+```
+
+So you only need the host step above — nothing else to set up.
 
 ---
 
@@ -87,14 +93,15 @@ old version — the browser caches CSS and JS.
 You noticed the real problem: the CV in `assets/` doesn't have the portfolio
 link on it, and you can't add the link until the site is hosted.
 
-**It isn't actually circular** — the URL only depends on your username, so you
-can put it on the CV *before* the site exists:
+**It isn't actually circular** — you choose the URL, so you can put it on the CV
+*before* the site exists:
 
 1. Open the source document you made the CV from (the Word/Docs file, not the PDF).
-2. In the header line that already has LinkedIn and GitHub, add:
+2. In the header line that already has LinkedIn and GitHub, add whichever host
+   you picked above:
 
    ```
-   Portfolio: hirushamadhushan.github.io
+   Portfolio: hirushamadhushan.vercel.app
    ```
 
 3. Export to PDF, save it as `assets/resume.pdf` in this folder.
@@ -115,20 +122,23 @@ floating around.
 
 ## Optional: your own domain
 
-If you ever buy something like `hirusha.dev`:
+You already own `medisynclk.dev`, so a subdomain like `hirusha.medisynclk.dev`
+costs nothing extra.
 
-1. Add a file named `CNAME` in this folder containing just `hirusha.dev`
-2. At your domain registrar, point an `A` record at GitHub's IPs
-   (`185.199.108.153`, `.109.153`, `.110.153`, `.111.153`)
-3. Repo → Settings → Pages → Custom domain → enter it → tick **Enforce HTTPS**
+**On Vercel:** Project → Settings → Domains → add the domain → follow the DNS
+records it prints. Vercel issues the HTTPS certificate itself.
 
-You already did this for MediSync (`medisynclk.dev`), so it's the same drill.
+**On GitHub Pages:** add a file named `CNAME` in this folder containing just the
+domain, point an `A` record at GitHub's IPs (`185.199.108.153`, `.109.153`,
+`.110.153`, `.111.153`), then repo → Settings → Pages → Custom domain → tick
+**Enforce HTTPS**.
 
 ---
 
 ## Notes
 
 - `admin.html` gets published along with everything else. It's harmless — it has
-  no backend and can't change what visitors see. Delete it before pushing if you
-  would rather not ship it; the site works fine without it.
-- Keep the repo public. Private repos don't serve Pages on the free plan.
+  no backend and can't change what visitors see. Delete it before deploying if
+  you would rather not ship it; the site works fine without it.
+- Keep the repo public if you use GitHub Pages — private repos don't serve Pages
+  on the free plan. Vercel deploys private repos fine.
