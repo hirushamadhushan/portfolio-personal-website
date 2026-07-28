@@ -1,0 +1,28 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tslgBody" x1="17" y1="17" x2="47" y2="47" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBBF24"/>
+      <stop offset="1" stop-color="#F97316"/>
+    </linearGradient>
+    <linearGradient id="tslgPin" x1="8" y1="32" x2="56" y2="32" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38BDF8"/>
+      <stop offset="1" stop-color="#60A5FA"/>
+    </linearGradient>
+  </defs>
+
+  <!-- pins -->
+  <g stroke="url(#tslgPin)" stroke-width="5" stroke-linecap="round" stroke-opacity="0.95">
+    <path d="M25 17V8"/>
+    <path d="M39 17V8"/>
+    <path d="M25 47v9"/>
+    <path d="M39 47v9"/>
+    <path d="M17 25H8"/>
+    <path d="M17 39H8"/>
+    <path d="M47 25h9"/>
+    <path d="M47 39h9"/>
+  </g>
+
+  <!-- chip body -->
+  <rect x="17" y="17" width="30" height="30" rx="7" stroke="url(#tslgBody)" stroke-width="6"/>
+  <rect x="27.5" y="27.5" width="9" height="9" rx="2.5" stroke="url(#tslgBody)" stroke-width="5"/>
+</svg>

@@ -49,7 +49,11 @@
           '<span class="bgfx"></span><span class="mesh"></span>' +
           (p.badge ? '<span class="proj-badge">' + esc(p.badge) + '</span>' : '') +
           (p.live ? '<span class="proj-live"><span class="d"></span>Live</span>' : '') +
-          '<span class="glyph">' + esc(p.glyph || p.title) + '</span>' +
+          /* logo if there is one, otherwise the big text glyph */
+          (p.logo
+            ? '<img class="logo" src="' + esc(p.logo) + '" alt="' + esc(p.title) + ' logo" onerror="this.remove()" />'
+            : '<span class="glyph">' + esc(p.glyph || p.title) + '</span>') +
+          /* a screenshot, when set, covers the whole thumbnail */
           (p.image ? '<img src="' + esc(p.image) + '" alt="' + esc(p.title) + '" onerror="this.remove()" />' : '') +
         '</div>' +
         '<div class="proj-body">' +

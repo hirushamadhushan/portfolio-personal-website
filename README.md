@@ -33,7 +33,8 @@ replacing the old one, then push.
   badge:       "Web App · React",          // small pill, "" to hide
   theme:       "p4",                       // p1…p6 — thumbnail gradient
   live:        true,                       // green LIVE pill
-  image:       "assets/weather.png",       // "" or a missing file → gradient shows
+  logo:        "assets/logo-weather.svg",  // centred logo on the gradient
+  image:       "",                         // full-bleed screenshot; covers gradient AND logo
   description: "…",
   tech:        ["React", "Chart.js"],
   code:        "https://github.com/…",     // "" hides the CODE link
@@ -42,6 +43,20 @@ replacing the old one, then push.
 ```
 
 Order in the array = order on the page.
+
+**Thumbnails** fall back in this order: `image` → `logo` → `glyph` text. So a card
+always looks finished, even with nothing in `assets/`.
+
+The three logos in `assets/` are SVG, so they stay sharp at any size:
+
+| File | Project | Where it came from |
+|---|---|---|
+| `logo-medisync.svg` | MediSync | your real app logo, copied from `frontend/public/logo.svg` |
+| `logo-techstore.svg` | Madhushan Tech Store | drawn to match — a CPU chip |
+| `logo-heart.svg` | Heart Disease Prediction | drawn to match — heart + ECG pulse |
+
+All three use the same outlined-geometry-with-gradient language so the row reads
+as a set. To swap one out, drop your own SVG in `assets/` and point `logo:` at it.
 
 > Why not a login and a save button? This is a static site — there's no server to
 > save to. `admin.html` is the honest version of that: it builds the file, you

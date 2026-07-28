@@ -170,7 +170,7 @@ textarea{resize:vertical;min-height:96px;line-height:1.6}
   function blank() {
     return {
       title: 'New Project', glyph: 'New', badge: '', theme: 'p4', live: false,
-      image: '', description: '', tech: [], code: '', demo: ''
+      logo: '', image: '', description: '', tech: [], code: '', demo: ''
     };
   }
 
@@ -248,10 +248,14 @@ textarea{resize:vertical;min-height:96px;line-height:1.6}
         '<div class="field"><label>Badge</label>' +
           '<input type="text" data-k="badge" value="' + attr(p.badge) + '" />' +
           '<div class="hint">e.g. "Full Stack &middot; MERN". Leave empty to hide.</div></div>' +
-        '<div class="field"><label>Screenshot path</label>' +
-          '<input type="text" data-k="image" value="' + attr(p.image) + '" />' +
-          '<div class="hint">e.g. assets/myapp.png &mdash; optional, gradient shows if missing.</div></div>' +
+        '<div class="field"><label>Logo path</label>' +
+          '<input type="text" data-k="logo" value="' + attr(p.logo) + '" />' +
+          '<div class="hint">e.g. assets/logo-myapp.svg &mdash; sits centred on the gradient.</div></div>' +
       '</div>' +
+
+      '<div class="field"><label>Screenshot path</label>' +
+        '<input type="text" data-k="image" value="' + attr(p.image) + '" />' +
+        '<div class="hint">Optional full-bleed image. If set it covers the gradient <em>and</em> the logo &mdash; leave empty to keep the logo look.</div></div>' +
 
       '<div class="field"><label>Description</label>' +
         '<textarea data-k="description">' + text(p.description) + '</textarea>' +
@@ -332,6 +336,7 @@ textarea{resize:vertical;min-height:96px;line-height:1.6}
         '    badge: ' + js(p.badge || '') + ',\n' +
         '    theme: ' + js(p.theme || 'p1') + ',\n' +
         '    live: ' + (p.live ? 'true' : 'false') + ',\n' +
+        '    logo: ' + js(p.logo || '') + ',\n' +
         '    image: ' + js(p.image || '') + ',\n' +
         '    description: ' + js(p.description || '') + ',\n' +
         '    tech: [' + (p.tech || []).map(js).join(', ') + '],\n' +
