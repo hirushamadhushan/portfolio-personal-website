@@ -104,11 +104,13 @@ link on it, and you can't add the link until the site is hosted.
    Portfolio: hirushamadhushan.vercel.app
    ```
 
-3. Export to PDF, save it as `assets/resume.pdf` in this folder.
-4. Push. Site and CV go live together, and the link works immediately.
+3. Export to PDF and drop it into `assets/`.
+4. Point the hero's **Download CV** button at the new filename — it is one
+   `href` in `index.html`, on the `<a>` with `download="Hirusha-Madhushan-CV.pdf"`.
+5. Push. Site and CV go live together, and the link works immediately.
 
-The **Download CV** button in the hero already points at `assets/resume.pdf`, so
-that filename is what matters.
+The `download` attribute renames the file on the visitor's machine, so the name
+in `assets/` only has to match that `href`.
 
 **If you only have the PDF and lost the source**, the link is still editable:
 - <https://www.ilovepdf.com/edit-pdf> or Adobe Acrobat's Edit PDF will let you
