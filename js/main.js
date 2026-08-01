@@ -4,9 +4,9 @@
 
    1. Helpers            6. Reveal on scroll
    2. Preloader          7. Counters
-   3. Custom cursor      8. Skill bars
-   4. Typing roles       9. Tilt + magnetic
-   5. Nav / progress    10. Marquee, copy, particles
+   3. Custom cursor      8. Tilt + magnetic
+   4. Typing roles       9. Marquee, copy, particles
+   5. Nav / progress
    ========================================================================== */
 (function () {
   'use strict';
@@ -210,21 +210,7 @@
 
   $$('.count').forEach(function (el) { countObserver.observe(el); });
 
-  /* ------------------------ 8. Skill bars -------------------------------- */
-  var barObserver = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (!entry.isIntersecting) return;
-
-      $$('.bar-fill', entry.target).forEach(function (fill, i) {
-        setTimeout(function () { fill.style.width = fill.dataset.w + '%'; }, i * 110);
-      });
-      barObserver.unobserve(entry.target);
-    });
-  }, { threshold: 0.35 });
-
-  $$('.skill-card').forEach(function (el) { barObserver.observe(el); });
-
-  /* --------------------- 9. Tilt + magnetic ------------------------------ */
+  /* --------------------- 8. Tilt + magnetic ------------------------------ */
   if (!reduced && canHover) {
     $$('.tilt').forEach(function (card) {
       card.addEventListener('mousemove', function (e) {
@@ -254,7 +240,7 @@
     });
   }
 
-  /* ---------------- 10. Marquee, copy-to-clipboard, particles ------------ */
+  /* ----------------- 9. Marquee, copy-to-clipboard, particles ------------ */
 
   /* duplicate the track so the -50% loop is seamless */
   var track = $('#mqTrack');

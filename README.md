@@ -96,18 +96,19 @@ Missing images remove themselves at runtime and the animated gradient thumbnail 
 
 Live-demo URLs come from your CV, not from the GitHub `homepage` field — the repo still points at the old `medisync-six-pi.vercel.app`, so update it on GitHub too if you want them consistent.
 
-**The one thing that is my guess, not your data:** the skill-bar percentages in the Skills section. Tune them — each bar is two numbers in `index.html`:
+The Skills section lists technologies as plain tags — no proficiency percentages, since those are guesses rather than data. Add or remove one by editing the list in `index.html`:
 
 ```html
-<div class="bar-top"><span class="nm">React 18</span><span class="pc">88%</span></div>
-<div class="bar-track"><div class="bar-fill" data-w="88"></div></div>
+<li class="sk">React 18</li>
 ```
+
+Keep the `cnt` number in each card's `.skill-head` in sync with how many tags it holds.
 
 ---
 
 ## Animations
 
-Preloader · custom trailing cursor · interactive particle constellation that drifts away from the pointer · drifting gradient orbs, masked grid and film grain · line-by-line hero name reveal · role typewriter (Full Stack → Frontend → Backend → ML) · scroll progress bar · shrinking nav with active-section highlight · scroll reveals staggered by `data-delay` · 3D tilt with cursor spotlight on cards · magnetic buttons · counting stats · skill bars that fill in sequence with a shine sweep · infinite tech marquee (pauses on hover) · floating portrait with scan line and info chips · full-screen animated mobile menu.
+Preloader · custom trailing cursor · interactive particle constellation that drifts away from the pointer · drifting gradient orbs, masked grid and film grain · line-by-line hero name reveal · role typewriter (Full Stack → Frontend → Backend → ML) · scroll progress bar · shrinking nav with active-section highlight · scroll reveals staggered by `data-delay` · 3D tilt with cursor spotlight on cards · magnetic buttons · counting stats · infinite tech marquee (pauses on hover) · floating portrait with scan line and info chips · full-screen animated mobile menu.
 
 All of it switches off automatically under `prefers-reduced-motion: reduce`.
 

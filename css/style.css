@@ -431,19 +431,15 @@ h1.hero-name .accent{background:var(--grad);-webkit-background-clip:text;backgro
 .skill-head h3{font-family:'Space Grotesk',sans-serif;font-size:1.02rem;font-weight:600}
 .skill-head .cnt{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--dim)}
 
-.bar{margin-bottom:15px}
-.bar:last-child{margin-bottom:0}
-.bar-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;gap:12px}
-.bar-top .nm{font-size:.9rem;color:var(--text);font-weight:500}
-.bar-top .pc{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--dim)}
-.bar-track{height:5px;border-radius:99px;background:rgba(255,255,255,.06);overflow:hidden}
-.bar-fill{height:100%;width:0;border-radius:99px;background:var(--grad);transition:width 1.3s var(--ease);position:relative}
-.bar-fill::after{
-  content:'';position:absolute;inset:0;border-radius:99px;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);
-  animation:shine 2.6s ease-in-out infinite;
+.skill-list{display:flex;flex-wrap:wrap;gap:9px;list-style:none}
+.sk{
+  display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:99px;
+  font-size:.86rem;font-weight:500;color:var(--text);
+  background:rgba(255,255,255,.045);border:1px solid var(--line);
+  transition:background .3s,color .3s,border-color .3s,transform .3s var(--ease);
 }
-@keyframes shine{0%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}
+.sk::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--grad);flex:none}
+.sk:hover{background:rgba(139,92,246,.15);color:#fff;border-color:rgba(139,92,246,.4);transform:translateY(-2px)}
 
 /* ========================== 12. PROJECTS ================================= */
 .proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
